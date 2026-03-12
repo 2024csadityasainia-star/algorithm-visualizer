@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algorithm Visualizer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="header">
+        <h1>Algorithm Visualizer</h1>
+        <p>see how sorting and graph algorithms work step by step</p>
+    </div>
+
+    <div class="controls">
+        <div class="control-item">
+            <label for="algo-select">Algorithm:</label>
+            <select id="algo-select">
+                <optgroup label="Sorting">
+                    <option value="selection">Selection Sort</option>
+                    <option value="merge">Merge Sort</option>
+                    <option value="quick">Quick Sort</option>
+                </optgroup>
+                <optgroup label="Graph">
+                    <option value="bfs">BFS</option>
+                    <option value="dfs">DFS</option>
+                    <option value="dijkstra">Dijkstra</option>
+                </optgroup>
+            </select>
+        </div>
+
+        <div class="control-item">
+            <label for="speed">Speed:</label>
+            <input type="range" id="speed" min="1" max="100" value="50">
+        </div>
+
+        <div class="control-item" id="size-control">
+            <label for="arr-size">Size:</label>
+            <input type="range" id="arr-size" min="5" max="80" value="25">
+        </div>
+
+        <button id="btn-generate" class="btn">New Array</button>
+        <button id="btn-start" class="btn btn-go">Start</button>
+        <button id="btn-reset" class="btn btn-stop">Reset</button>
+    </div>
+
+    <div class="info-bar">
+        <span id="algo-name">Selection Sort</span>
+        <span id="time-comp">Time: O(n²)</span>
+        <span id="space-comp">Space: O(1)</span>
+        <span id="comparisons">Comparisons: 0</span>
+        <span id="swaps">Swaps: 0</span>
+    </div>
+
+    <!-- sorting view -->
+    <div id="sort-view" class="viz-area">
+        <div id="bars"></div>
+    </div>
+
+    <!-- graph view -->
+    <div id="graph-view" class="viz-area hidden">
+        <canvas id="graph-canvas" width="900" height="450"></canvas>
+    </div>
+
+    <div id="status-text" class="status">pick an algorithm and hit Start</div>
+
+    <script src="sorting.js"></script>
+    <script src="graph.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
